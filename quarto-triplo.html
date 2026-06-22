@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quarto Triplo | Pousada Plafitpufit – Jericoacoara</title>
+<meta name="description" content="Quarto Triplo da Pousada Plafitpufit em Jericoacoara: 26 m², três camas box de solteiro, ar-condicionado e espaço para grupos de amigos curtir Jeri.">
+<link rel="icon" href="assets/logos/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --beige:           #F4EFDC;
+    --white:           #FFFFFF;
+    --moonstone:       #76BCCC;
+    --moonstone-dk:    #5aa6b8;
+    --violet:          #7171D3;
+    --green-yellow:    #E7F24E;
+    --green-yellow-dk: #d6e23a;
+    --ink:             #2A2A2A;
+    --ink-60:          rgba(42,42,42,.66);
+    --border-input:    #D8D2BE;
+    --font-display: "Rethink Sans", system-ui, sans-serif;
+    --font-accent:  "Playfair Display", Georgia, serif;
+    --r-btn:  12px;
+    --r-card: 20px;
+    --r-img:  16px;
+    --r-pill: 999px;
+    --sh-card:       0 4px 16px rgba(42,42,42,.06);
+    --sh-card-hover: 0 12px 32px rgba(42,42,42,.12);
+    --sh-cta:        0 4px 12px rgba(231,242,78,.4);
+    --side-pad: 48px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--beige); color: var(--ink); font-family: var(--font-display); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--moonstone); text-decoration: none; transition: color .2s; }
+  a:hover { color: var(--moonstone-dk); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  h1,h2,h3 { font-family: var(--font-display); line-height: 1.15; margin: 0; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; border-radius: 4px; }
+  .container { width: 100%; padding: 0 var(--side-pad); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 16px 32px; min-height: 48px; border-radius: var(--r-btn); border: 1.5px solid transparent; cursor: pointer; transition: background-color .2s, color .2s, transform .2s, box-shadow .2s; text-decoration: none; }
+  .btn-primary { background: var(--green-yellow); color: var(--ink); box-shadow: var(--sh-cta); }
+  .btn-primary:hover { background: var(--green-yellow-dk); color: var(--ink); transform: translateY(-2px); }
+  .btn-secondary { background: transparent; border: 1.5px solid var(--moonstone); color: var(--moonstone); }
+  .btn-secondary:hover { background: var(--moonstone); color: var(--white); transform: translateY(-2px); }
+
+  .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(42,42,42,.10); }
+  .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
+  .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
+  .brand img { height: 40px; width: auto; display: block; }
+  .main-nav { flex: 1; }
+  .main-nav ul { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .main-nav a { color: var(--ink); font-weight: 500; font-size: 15px; padding: 6px 2px; position: relative; white-space: nowrap; }
+  .main-nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--moonstone); transition: width .25s; }
+  .main-nav a:hover { color: var(--moonstone); }
+  .main-nav a:hover::after { width: 100%; }
+  .nav-cta-btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 12px 24px; min-height: 44px; border-radius: var(--r-btn); background: var(--green-yellow); color: var(--ink); box-shadow: var(--sh-cta); white-space: nowrap; flex-shrink: 0; transition: background-color .2s, transform .2s; }
+  .nav-cta-btn:hover { background: var(--green-yellow-dk); color: var(--ink); transform: translateY(-2px); }
+  .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 48px; height: 48px; background: transparent; border: 1.5px solid var(--moonstone); border-radius: var(--r-btn); cursor: pointer; flex-shrink: 0; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; margin: 0 auto; background: var(--moonstone); transition: transform .25s, opacity .25s; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile-cta { display: none; }
+
+  .room-hero { position: relative; height: 70vh; min-height: 420px; overflow: hidden; }
+  .room-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .room-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,42,42,.75) 0%, rgba(42,42,42,.2) 60%, transparent 100%); }
+  .room-hero__content { position: absolute; bottom: 0; left: 0; right: 0; padding: 48px var(--side-pad); color: var(--white); }
+  .breadcrumb { font-size: 14px; color: rgba(255,255,255,.8); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .breadcrumb a { color: rgba(255,255,255,.8); }
+  .breadcrumb a:hover { color: var(--green-yellow); }
+  .breadcrumb span { color: rgba(255,255,255,.5); }
+  .room-hero h1 { font-weight: 800; font-size: clamp(32px, 5vw, 56px); text-shadow: 0 2px 12px rgba(0,0,0,.3); margin-bottom: 8px; }
+  .room-hero .stars { color: #c9a800; font-size: 18px; letter-spacing: 2px; }
+
+  .room-content { padding: 80px 0; }
+  .room-content .container { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .room-image img { border-radius: var(--r-img); box-shadow: var(--sh-card); width: 100%; }
+  .eyebrow { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-size: 17px; color: var(--violet); margin: 0 0 10px; }
+  .room-info h2 { font-weight: 700; font-size: clamp(26px, 3vw, 36px); margin: 0 0 20px; }
+  .room-info p { color: var(--ink-60); margin: 0 0 32px; font-size: 17px; }
+  .specs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .spec-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border-input); border-radius: var(--r-pill); padding: 10px 18px; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .spec-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--moonstone); flex-shrink: 0; }
+
+  .highlights { background: var(--white); padding: 72px 0; }
+  .highlights .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .highlight-card { background: var(--beige); border-radius: var(--r-card); padding: 28px 20px; text-align: center; box-shadow: var(--sh-card); }
+  .highlight-icon { font-size: 32px; margin-bottom: 12px; }
+  .highlight-card h3 { font-size: 15px; font-weight: 700; color: var(--moonstone); margin: 0 0 6px; }
+  .highlight-card p { font-size: 13px; color: var(--ink-60); margin: 0; line-height: 1.5; }
+
+  .room-cta { background: var(--ink); padding: 72px 0; text-align: center; }
+  .room-cta p.eyebrow { color: var(--green-yellow); }
+  .room-cta h2 { color: var(--white); font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 32px; }
+
+  .other-rooms { padding: 80px 0; }
+  .other-rooms h2 { font-weight: 700; font-size: clamp(26px, 3vw, 36px); text-align: center; margin-bottom: 48px; }
+  .other-rooms p.eyebrow { text-align: center; margin-bottom: 10px; }
+  .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .room-card { background: var(--white); border-radius: var(--r-card); box-shadow: var(--sh-card); overflow: hidden; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; }
+  .room-card:hover { transform: translateY(-4px); box-shadow: var(--sh-card-hover); }
+  .room-card img { width: 100%; height: 220px; object-fit: cover; }
+  .room-card__body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+  .room-card h3 { font-weight: 600; font-size: 20px; margin: 0 0 10px; }
+  .room-card p { font-size: 15px; color: var(--ink-60); margin: 0 0 20px; flex: 1; }
+  .room-card .btn { align-self: flex-start; }
+
+  .site-footer { background: var(--ink); color: rgba(255,255,255,.82); padding: 72px 0 0; }
+  .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 48px; padding-bottom: 56px; }
+  .footer__slogan { max-width: 320px; margin: 0 0 20px; line-height: 1.6; }
+  .footer__address { font-size: 15px; color: rgba(255,255,255,.7); font-style: normal; }
+  .site-footer h2 { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--white); margin: 0 0 18px; }
+  .footer__links li { margin-bottom: 10px; }
+  .footer__links a { color: rgba(255,255,255,.82); }
+  .footer__links a:hover { color: var(--green-yellow); }
+  .footer__contact li { margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+  .footer__contact a { color: rgba(255,255,255,.82); }
+  .footer__contact a:hover { color: var(--green-yellow); }
+  .footer__social { display: flex; gap: 12px; margin-top: 20px; }
+  .footer__social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.25); border-radius: var(--r-btn); padding: 0; transition: background-color .2s, border-color .2s; }
+  .footer__social a img { width: 22px; height: 22px; display: block; }
+  .footer__social a:hover { background: var(--moonstone); border-color: var(--moonstone); }
+  .footer__bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 24px 0; font-size: 14px; color: rgba(255,255,255,.6); display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; }
+  .footer__bottom a { color: rgba(255,255,255,.7); }
+  .footer__bottom a:hover { color: var(--green-yellow); }
+  .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 120; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: var(--white); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: transform .2s; }
+  .whatsapp-float:hover { transform: scale(1.08); color: var(--white); }
+
+  @media (max-width: 1024px) { .highlights .container { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) {
+    :root { --side-pad: 20px; }
+    .main-nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid rgba(42,42,42,.08); box-shadow: var(--sh-card-hover); max-height: 0; overflow: hidden; transition: max-height .32s ease; }
+    .main-nav.open { max-height: 80vh; overflow-y: auto; }
+    .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; justify-content: flex-start; }
+    .main-nav a { display: block; padding: 14px 24px; min-height: 44px; font-size: 16px; }
+    .main-nav a::after { display: none; }
+    .nav-mobile-cta { display: block; padding: 12px 20px 20px; }
+    .nav-mobile-cta .nav-cta-btn { display: flex; width: 100%; }
+    .nav-toggle { display: flex; }
+    .nav-cta-desktop { display: none; }
+    .room-hero { height: 55vh; }
+    .room-content .container { grid-template-columns: 1fr; gap: 36px; }
+    .room-image { order: -1; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .highlights .container { grid-template-columns: repeat(2, 1fr); }
+    .footer__grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="Plafitpufit, página inicial">
+      <img src="assets/logos/logo-preto.png" alt="Plafitpufit">
+    </a>
+    <nav class="main-nav" id="primary-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#sobre">Sobre a Pousada</a></li>
+        <li><a href="index.html#acomodacoes">Acomodações</a></li>
+        <li><a href="index.html#avaliacoes">Avaliações</a></li>
+        <li><a href="index.html#galeria">Galeria</a></li>
+        <li><a href="index.html#jericoacoara">Jericoacoara</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+        <li class="nav-mobile-cta"><a class="nav-cta-btn" href="index.html#contato">RESERVAR</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta-btn nav-cta-desktop" href="index.html#contato">RESERVAR</a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="room-hero" aria-labelledby="room-title">
+    <img src="assets/imagens/acomodacoes/quarto-triplo.webp" alt="Quarto Triplo da Pousada Plafitpufit em Jericoacoara">
+    <div class="room-hero__overlay" aria-hidden="true"></div>
+    <div class="room-hero__content">
+      <nav class="breadcrumb" aria-label="Caminho de navegação">
+        <a href="index.html">Início</a>
+        <span aria-hidden="true">›</span>
+        <a href="index.html#acomodacoes">Acomodações</a>
+        <span aria-hidden="true">›</span>
+        <span>Quarto Triplo</span>
+      </nav>
+      <h1 id="room-title">Quarto Triplo</h1>
+      <p class="stars" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</p>
+    </div>
+  </section>
+
+  <section class="room-content">
+    <div class="container">
+      <div class="room-image">
+        <img src="assets/imagens/acomodacoes/quarto-triplo.webp" alt="Vista interna do Quarto Triplo" loading="lazy">
+      </div>
+      <div class="room-info">
+        <p class="eyebrow">Acomodações</p>
+        <h2>O quarto ideal para a turma toda</h2>
+        <p>Viagem de amigos? A Plafitpufit tem o quarto certo para vocês. Três camas confortáveis e todo o espaço que um grupo precisa para curtir Jeri.</p>
+        <div class="specs" role="list" aria-label="Comodidades do quarto">
+          <span class="spec-pill" role="listitem">26 m²</span>
+          <span class="spec-pill" role="listitem">3 Camas Box Solteiro</span>
+          <span class="spec-pill" role="listitem">TV Smart</span>
+          <span class="spec-pill" role="listitem">Geladeira</span>
+          <span class="spec-pill" role="listitem">Ar-condicionado</span>
+          <span class="spec-pill" role="listitem">Wi-Fi</span>
+          <span class="spec-pill" role="listitem">Cofre</span>
+          <span class="spec-pill" role="listitem">Térreo</span>
+        </div>
+        <a class="btn btn-primary" href="index.html#contato">RESERVAR AGORA</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights" aria-label="Destaques do quarto">
+    <div class="container">
+      <div class="highlight-card">
+        <div class="highlight-icon" aria-hidden="true">🛏</div>
+        <h3>3 Camas Box</h3>
+        <p>Cada hóspede tem sua cama individual com colchão de qualidade para uma boa noite.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon" aria-hidden="true">📐</div>
+        <h3>26 m² de Espaço</h3>
+        <p>Espaço generoso para que o grupo se sinta à vontade durante toda a estadia.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon" aria-hidden="true">❄️</div>
+        <h3>Ar-condicionado</h3>
+        <p>Temperatura agradável para descansar depois de um dia cheio de aventuras em Jeri.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon" aria-hidden="true">🏠</div>
+        <h3>Acesso Facilitado</h3>
+        <p>Localizado no térreo, sem escadas. Perfeito para grupos com muita bagagem.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="room-cta" aria-labelledby="cta-title">
+    <div class="container">
+      <p class="eyebrow">Reserve seu quarto</p>
+      <h2 id="cta-title">Bora levar a turma para Jericoacoara?</h2>
+      <a class="btn btn-primary" href="index.html#contato">RESERVAR AGORA</a>
+    </div>
+  </section>
+
+  <section class="other-rooms" aria-labelledby="other-title">
+    <div class="container">
+      <p class="eyebrow">Confira também</p>
+      <h2 id="other-title">Outros quartos disponíveis</h2>
+      <div class="cards-grid">
+        <article class="room-card">
+          <img src="assets/imagens/acomodacoes/quarto-standart-casal.webp" alt="Quarto Standard Casal" loading="lazy">
+          <div class="room-card__body">
+            <h3>Quarto Standard Casal</h3>
+            <p>Perfeito para casais que querem descansar com conforto e privacidade em Jericoacoara.</p>
+            <a class="btn btn-secondary" href="quarto-standard-casal.html">SAIBA MAIS</a>
+          </div>
+        </article>
+        <article class="room-card">
+          <img src="assets/imagens/acomodacoes/quarto-deluxe-familia.webp" alt="Quarto Deluxe Família" loading="lazy">
+          <div class="room-card__body">
+            <h3>Quarto Deluxe Família</h3>
+            <p>Ideal para quem viaja em família. Com cama de casal e uma de solteiro, todo mundo fica acomodado.</p>
+            <a class="btn btn-secondary" href="quarto-deluxe-familia.html">SAIBA MAIS</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contato">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" style="display:inline-block;margin-bottom:16px;">
+          <img src="assets/logos/logo-claro.png" alt="Plafitpufit" style="height:48px;width:auto;display:block;">
+        </a>
+        <p class="footer__slogan">A nossa pousada é a sua casa em Jericoacoara. Esperamos receber você em breve.</p>
+        <address class="footer__address">Rua [Nome da Rua], s/n, Jericoacoara, Jijoca de Jericoacoara, CE</address>
+        <div class="footer__social">
+          <a href="https://nextautomatik.com/" aria-label="Instagram" target="_blank" rel="noopener"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+          <a href="https://nextautomatik.com/" aria-label="WhatsApp" target="_blank" rel="noopener"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a>
+        </div>
+      </div>
+      <nav aria-labelledby="footer-nav">
+        <h2 id="footer-nav">Links Úteis</h2>
+        <ul class="footer__links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#sobre">Sobre a Pousada</a></li>
+          <li><a href="index.html#acomodacoes">Acomodações</a></li>
+          <li><a href="index.html#avaliacoes">Avaliações</a></li>
+          <li><a href="index.html#galeria">Galeria</a></li>
+          <li><a href="index.html#jericoacoara">Jericoacoara</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contato</h2>
+        <ul class="footer__contact">
+          <li><span aria-hidden="true">📍</span> <a href="https://maps.google.com/?q=Jericoacoara+CE">Jericoacoara, CE</a></li>
+          <li><span aria-hidden="true">📞</span> <a href="tel:+5588999999999">(88) 99XXX-XXXX</a></li>
+          <li><span aria-hidden="true">💬</span> <a href="https://nextautomatik.com/" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><span aria-hidden="true">🌐</span> <a href="https://plafitpufit.com.br">plafitpufit.com.br</a></li>
+          <li><span aria-hidden="true">📧</span> <a href="mailto:reservas@plafitpufit.com.br">reservas@plafitpufit.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Pousada Plafitpufit © 2026. Todos os Direitos Reservados</span>
+      <span><a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://nextautomatik.com/" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>
+</body>
+</html>

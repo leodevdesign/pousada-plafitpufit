@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pousada Plafitpufit | Jericoacoara, CE</title>
+<meta name="description" content="A Pousada Plafitpufit é onde o sossego das dunas encontra o conforto que você merece, no coração da Vila de Jericoacoara.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logos/favicon.png" type="image/png">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM — TOKENS
+     ============================================================ */
+  :root {
+    --beige:           #F4EFDC;
+    --white:           #FFFFFF;
+    --moonstone:       #76BCCC;
+    --moonstone-dk:    #5aa6b8;
+    --violet:          #7171D3;
+    --green-yellow:    #E7F24E;
+    --green-yellow-dk: #d6e23a;
+    --ink:             #2A2A2A;
+    --ink-60:          rgba(42,42,42,.66);
+    --border-input:    #D8D2BE;
+
+    --font-display: "Rethink Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-body:    "Rethink Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-accent:  "Playfair Display", Georgia, "Times New Roman", serif;
+
+    --r-btn:  12px;
+    --r-card: 20px;
+    --r-img:  16px;
+    --r-pill: 999px;
+
+    --sh-card:       0 4px 16px rgba(42,42,42,.06);
+    --sh-card-hover: 0 12px 32px rgba(42,42,42,.12);
+    --sh-cta:        0 4px 12px rgba(231,242,78,.4);
+
+    --section-pad: 96px;
+    /* Padding lateral — sem max-width, usa 100% da tela */
+    --side-pad: 48px;
+  }
+
+  /* ============================================================
+     RESET / BASE
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--beige);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--moonstone); text-decoration: none; transition: color .2s ease; }
+  a:hover { color: var(--moonstone-dk); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0; }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--violet);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Container: largura total com padding lateral */
+  .container {
+    width: 100%;
+    padding: 0 var(--side-pad);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    background: var(--ink);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: var(--r-btn);
+    z-index: 200;
+  }
+  .skip-link:focus { left: 16px; color: var(--white); }
+
+  /* ============================================================
+     TIPOGRAFIA
+     ============================================================ */
+  .eyebrow {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--violet);
+    margin: 0 0 12px;
+    letter-spacing: .2px;
+  }
+  .section-title {
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 42px);
+    letter-spacing: -.5px;
+    margin: 0 0 24px;
+  }
+  .section-head { margin-bottom: 48px; }
+  .section-head.center { text-align: center; }
+  .section-head.center .section-title,
+  .section-head.center .eyebrow { margin-left: auto; margin-right: auto; }
+
+  section { padding: var(--section-pad) 0; }
+
+  /* ============================================================
+     BOTÕES
+     ============================================================ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 32px;
+    min-height: 48px;
+    border-radius: var(--r-btn);
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: background-color .2s, color .2s, transform .2s, box-shadow .2s, border-color .2s;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--green-yellow);
+    color: var(--ink);
+    box-shadow: var(--sh-cta);
+  }
+  .btn-primary:hover {
+    background: var(--green-yellow-dk);
+    color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231,242,78,.5);
+  }
+  .btn-secondary {
+    background: transparent;
+    border: 1.5px solid var(--moonstone);
+    color: var(--moonstone);
+  }
+  .btn-secondary:hover {
+    background: var(--moonstone);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(42,42,42,.10);
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 76px;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--moonstone);
+    letter-spacing: -.5px;
+    flex-shrink: 0;
+  }
+  .brand:hover { color: var(--moonstone-dk); }
+
+  .main-nav { flex: 1; }
+  .main-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .main-nav a {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 6px 2px;
+    position: relative;
+    white-space: nowrap;
+  }
+  .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 2px;
+    background: var(--moonstone);
+    transition: width .25s ease;
+  }
+  .main-nav a:hover { color: var(--moonstone); }
+  .main-nav a:hover::after { width: 100%; }
+
+  /* CTA mobile — escondido no desktop, aparece só dentro do menu */
+  .nav-mobile-cta { display: none; }
+
+  /* CTA no nav — único botão de reserva no header */
+  .nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    min-height: 44px;
+    border-radius: var(--r-btn);
+    background: var(--green-yellow);
+    color: var(--ink);
+    box-shadow: var(--sh-cta);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color .2s, transform .2s, box-shadow .2s;
+  }
+  .nav-cta-btn:hover {
+    background: var(--green-yellow-dk);
+    color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231,242,78,.5);
+  }
+
+  /* Hambúrguer (mobile) */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 48px; height: 48px;
+    background: transparent;
+    border: 1.5px solid var(--moonstone);
+    border-radius: var(--r-btn);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px; height: 2px;
+    margin: 0 auto;
+    background: var(--moonstone);
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ============================================================
+     HERO — VÍDEO
+     ============================================================ */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--white);
+    overflow: hidden;
+  }
+  /* Vídeo de fundo */
+  .hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  /* Overlay gradiente */
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      rgba(42,42,42,.65) 0%,
+      rgba(42,42,42,.35) 55%,
+      rgba(118,188,204,.2) 100%
+    );
+    z-index: 1;
+  }
+  /* Conteúdo textual */
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 100px var(--side-pad) 60px;
+  }
+  .hero .eyebrow { color: var(--green-yellow); margin-bottom: 14px; }
+  .hero h1 {
+    font-weight: 800;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.1;
+    margin: 0 0 22px;
+    max-width: 740px;
+    text-shadow: 0 2px 18px rgba(0,0,0,.28);
+  }
+  .hero p.hero__sub {
+    font-size: clamp(16px, 2vw, 20px);
+    max-width: 560px;
+    margin: 0 0 32px;
+    color: rgba(255,255,255,.93);
+  }
+
+  /* ============================================================
+     WIDGET DE RESERVA
+     ============================================================ */
+  .booking-bar {
+    position: relative;
+    z-index: 3;
+    padding: 0 var(--side-pad) 0;
+    margin-top: auto;
+  }
+  .booking-card {
+    background: rgba(244,239,220,.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--r-card);
+    padding: 24px 28px;
+    box-shadow: 0 8px 40px rgba(42,42,42,.2);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 16px;
+    align-items: end;
+    transform: translateY(50%);
+  }
+  .booking-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .booking-field label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-60);
+  }
+  .booking-field input,
+  .booking-field select {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--white);
+    border: 1px solid var(--border-input);
+    border-radius: var(--r-btn);
+    padding: 12px 14px;
+    min-height: 48px;
+    width: 100%;
+    transition: border-color .2s, box-shadow .2s;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  .booking-field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2376BCCC' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 38px;
+  }
+  .booking-field input:focus,
+  .booking-field select:focus {
+    outline: none;
+    border-color: var(--moonstone);
+    box-shadow: 0 0 0 3px rgba(118,188,204,.22);
+  }
+  /* Correção de cor do placeholder de data */
+  .booking-field input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: .6;
+    cursor: pointer;
+  }
+  .booking-submit .btn {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 15px;
+    padding: 13px 24px;
+    min-height: 48px;
+  }
+
+  /* Espaço abaixo do hero para o card translado */
+  .hero-spacer { padding-top: calc(var(--section-pad) + 44px); background: var(--beige); }
+
+  /* ============================================================
+     SOBRE
+     ============================================================ */
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about__media img {
+    border-radius: var(--r-img);
+    box-shadow: var(--sh-card);
+    width: 100%;
+  }
+  .about__text p { margin: 0 0 20px; color: var(--ink-60); }
+  .about__text .btn { margin-top: 12px; }
+
+  /* ============================================================
+     ACOMODAÇÕES
+     ============================================================ */
+  .rooms__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .room-card {
+    background: var(--white);
+    border-radius: var(--r-card);
+    box-shadow: var(--sh-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .room-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sh-card-hover);
+  }
+  .room-card__media img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .room-card__body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .room-card h3 { font-weight: 600; font-size: 22px; margin: 0 0 6px; color: var(--ink); }
+  .stars { color: #c9a800; font-size: 15px; margin-bottom: 12px; letter-spacing: 1px; }
+  .room-card p.desc { color: var(--ink-60); font-size: 16px; margin: 0 0 18px; }
+  .amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 22px;
+  }
+  .amenities li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--beige);
+    border-radius: var(--r-pill);
+    padding: 6px 12px;
+  }
+  .amenities li::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--moonstone);
+    flex-shrink: 0;
+  }
+  .room-card .btn { margin-top: auto; align-self: flex-start; }
+
+  /* ============================================================
+     AVALIAÇÕES
+     ============================================================ */
+  .reviews { background: var(--white); }
+  .reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .review-card {
+    background: var(--beige);
+    border-radius: var(--r-card);
+    padding: 28px;
+    box-shadow: var(--sh-card);
+  }
+  .review-card .stars { margin-bottom: 14px; }
+  .review-card blockquote {
+    margin: 0 0 18px;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .review-card figcaption {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--moonstone);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-family: var(--font-display);
+    flex-shrink: 0;
+  }
+  .review-card cite { font-style: normal; font-weight: 600; display: block; }
+  .review-card .source { color: var(--ink-60); }
+
+  /* ============================================================
+     DIFERENCIAIS
+     ============================================================ */
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .feature {
+    background: var(--white);
+    border-radius: var(--r-card);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: var(--sh-card);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .feature:hover { transform: translateY(-4px); box-shadow: var(--sh-card-hover); }
+  .feature__icon {
+    width: 64px; height: 64px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: rgba(118,188,204,.16);
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+  }
+  .feature h3 { font-size: 19px; font-weight: 600; margin: 0 0 8px; color: var(--moonstone); }
+  .feature p { margin: 0; font-size: 15px; color: var(--ink-60); }
+
+  /* ============================================================
+     GALERIA
+     ============================================================ */
+  .gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 16px;
+  }
+  .gallery__grid figure { margin: 0; overflow: hidden; border-radius: var(--r-img); }
+  .gallery__grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery__grid figure:hover img { transform: scale(1.06); }
+  .gallery__grid .span-2-col { grid-column: span 2; }
+  .gallery__grid .span-2-row { grid-row: span 2; }
+
+  /* ============================================================
+     INSTAGRAM
+     ============================================================ */
+  .instagram { background: var(--white); }
+  .insta__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .insta__grid figure { margin: 0; overflow: hidden; border-radius: var(--r-img); aspect-ratio: 1 / 1; }
+  .insta__grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .insta__grid figure:hover img { transform: scale(1.06); }
+  .insta__handle { display: block; text-align: center; font-weight: 600; color: var(--violet); margin-bottom: 24px; }
+  .insta__cta { text-align: center; }
+
+  /* ============================================================
+     JERICOACOARA
+     ============================================================ */
+  .jeri__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .jeri__media img { border-radius: var(--r-img); box-shadow: var(--sh-card); width: 100%; }
+  .jeri__text p { color: var(--ink-60); margin: 0 0 20px; }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(255,255,255,.82);
+    padding: 72px 0 0;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 48px;
+    padding-bottom: 56px;
+  }
+  .site-footer .brand { color: var(--green-yellow); display: inline-block; margin-bottom: 16px; }
+  .footer__slogan { max-width: 320px; margin: 0 0 20px; line-height: 1.6; }
+  .footer__address { font-size: 15px; color: rgba(255,255,255,.7); font-style: normal; }
+  .site-footer h2 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 18px;
+  }
+  .footer__links li { margin-bottom: 10px; }
+  .footer__links a { color: rgba(255,255,255,.82); }
+  .footer__links a:hover { color: var(--green-yellow); }
+  .footer__contact li { margin-bottom: 12px; display: flex; gap: 10px; align-items: flex-start; }
+  .footer__contact a { color: rgba(255,255,255,.82); }
+  .footer__contact a:hover { color: var(--green-yellow); }
+  .footer__social { display: flex; gap: 12px; margin-top: 20px; }
+  .footer__social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: var(--r-btn);
+    padding: 0;
+    transition: background-color .2s, border-color .2s;
+  }
+  .footer__social a img { width: 22px; height: 22px; display: block; }
+  .footer__social a:hover { background: var(--moonstone); border-color: var(--moonstone); }
+  .footer__bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding: 24px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,.6);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    justify-content: space-between;
+  }
+  .footer__bottom a { color: rgba(255,255,255,.7); }
+  .footer__bottom a:hover { color: var(--green-yellow); }
+
+  /* WhatsApp flutuante */
+  .whatsapp-float {
+    position: fixed;
+    right: 20px; bottom: 20px;
+    z-index: 120;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    transition: transform .2s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); color: var(--white); }
+
+  /* Animações de reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* ============================================================
+     RESPONSIVO
+     ============================================================ */
+  @media (max-width: 1200px) {
+    :root { --side-pad: 32px; }
+    .booking-card { grid-template-columns: 1fr 1fr; }
+    .booking-submit { grid-column: span 2; }
+    .booking-submit .btn { width: auto; }
+  }
+
+  @media (max-width: 1024px) {
+    .rooms__grid,
+    .reviews__grid { grid-template-columns: repeat(2, 1fr); }
+    .features__grid { grid-template-columns: repeat(2, 1fr); }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .gallery__grid { grid-template-columns: repeat(3, 1fr); }
+    .insta__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --section-pad: 56px;
+      --side-pad: 20px;
+    }
+
+    /* Nav mobile */
+    .main-nav {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--beige);
+      border-bottom: 1px solid rgba(42,42,42,.08);
+      box-shadow: var(--sh-card-hover);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .32s ease;
+    }
+    .main-nav.open { max-height: 80vh; overflow-y: auto; }
+    .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; justify-content: flex-start; }
+    .main-nav a { display: block; padding: 14px 24px; min-height: 44px; font-size: 16px; }
+    .main-nav a::after { display: none; }
+    /* CTA no final do menu mobile */
+    .main-nav .nav-mobile-cta { padding: 12px 20px 20px; }
+    .main-nav .nav-mobile-cta .nav-cta-btn { display: flex; width: 100%; }
+
+    .nav-toggle { display: flex; }
+    /* Esconde o botão de reserva do header no mobile (vai no menu) */
+    .nav-cta-desktop { display: none; }
+    /* Mostra o botão dentro do menu mobile */
+    .nav-mobile-cta { display: block; }
+
+    /* Hero */
+    .hero { min-height: 80vh; }
+    .hero__content { padding: 80px var(--side-pad) 48px; }
+    .hero h1 { font-size: clamp(32px, 8vw, 48px); }
+
+    /* Booking widget — coluna única, sem translateY */
+    .booking-bar { padding: 0 var(--side-pad); }
+    .booking-card {
+      grid-template-columns: 1fr;
+      transform: none;
+      border-radius: var(--r-card);
+    }
+    .booking-submit { grid-column: auto; }
+    .booking-submit .btn { width: 100%; }
+    .hero-spacer { padding-top: var(--section-pad); }
+
+    /* Layout sections */
+    .about__grid,
+    .jeri__grid { grid-template-columns: 1fr; gap: 36px; }
+    .about__media { order: -1; }
+
+    .rooms__grid,
+    .reviews__grid,
+    .features__grid { grid-template-columns: 1fr; }
+
+    .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .gallery__grid .span-2-col,
+    .gallery__grid .span-2-row { grid-column: auto; grid-row: auto; }
+
+    .insta__grid { grid-template-columns: repeat(2, 1fr); }
+    .footer__grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ====================== HEADER ====================== -->
+<header class="site-header" id="topo">
+  <div class="container">
+    <a href="#topo" class="brand" aria-label="Plafitpufit, página inicial">
+      <img src="assets/logos/logo-preto.png" alt="Plafitpufit" height="40" style="display:block;width:auto;height:40px;">
+    </a>
+
+    <nav class="main-nav" id="primary-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#topo">Home</a></li>
+        <li><a href="#sobre">Sobre a Pousada</a></li>
+        <li><a href="#acomodacoes">Acomodações</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#jericoacoara">Jericoacoara</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <!-- CTA no menu mobile -->
+        <li class="nav-mobile-cta">
+          <a class="nav-cta-btn" href="#contato">RESERVAR</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Único botão de reserva no header (desktop) -->
+    <a class="nav-cta-btn nav-cta-desktop" href="#contato">RESERVAR</a>
+
+    <!-- Hambúrguer (mobile) -->
+    <button class="nav-toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <!-- Vídeo de fundo -->
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="assets/videos/video-hero-section.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <!-- Texto principal -->
+    <div class="hero__content">
+      <p class="eyebrow">Bem-vindo ao seu refúgio em Jeri</p>
+      <h1 id="hero-title">Desperte em Jericoacoara.<br>Durma no paraíso.</h1>
+      <p class="hero__sub">A Pousada Plafitpufit é onde o sossego das dunas encontra o conforto que você merece. A poucos passos do pôr do sol mais bonito do Brasil.</p>
+      <a class="btn btn-primary" href="#contato">RESERVE AGORA</a>
+    </div>
+
+    <!-- Widget de reserva -->
+    <div class="booking-bar">
+      <form class="booking-card" role="search" aria-label="Verificar disponibilidade">
+        <div class="booking-field">
+          <label for="checkin">Check-in</label>
+          <input type="date" id="checkin" name="checkin" aria-label="Data de check-in">
+        </div>
+        <div class="booking-field">
+          <label for="checkout">Check-out</label>
+          <input type="date" id="checkout" name="checkout" aria-label="Data de check-out">
+        </div>
+        <div class="booking-field">
+          <label for="hospedes">Hóspedes</label>
+          <select id="hospedes" name="hospedes" aria-label="Número de hóspedes">
+            <option value="1">1 hóspede</option>
+            <option value="2" selected>2 hóspedes</option>
+            <option value="3">3 hóspedes</option>
+            <option value="4">4 hóspedes</option>
+            <option value="5">5 hóspedes</option>
+            <option value="6">6+ hóspedes</option>
+          </select>
+        </div>
+        <div class="booking-submit">
+          <button type="submit" class="btn btn-primary">VER DISPONIBILIDADE</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Espaçamento para o card de reserva que translada para baixo do hero -->
+  <div class="hero-spacer" aria-hidden="true"></div>
+
+  <!-- ====================== SOBRE ====================== -->
+  <section id="sobre" aria-labelledby="sobre-title">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__media reveal">
+          <img loading="lazy" alt="Área externa aconchegante da Pousada Plafitpufit, no coração da Vila de Jericoacoara"
+            src="assets/imagens/sobre-pousada/entrada-externa.webp">
+        </div>
+        <div class="about__text reveal">
+          <p class="eyebrow">Sobre a Pousada</p>
+          <h2 class="section-title" id="sobre-title">Conheça um pouco sobre nós</h2>
+          <p>A Pousada Plafitpufit nasceu de um amor pela vida simples e bonita que só Jericoacoara oferece. Cada hóspede que recebemos faz parte dessa história.</p>
+          <p>Nosso objetivo é proporcionar uma estadia inesquecível no coração da Vila de Jeri, com preço justo, atendimento acolhedor e instalações sempre bem cuidadas para que você se sinta em casa.</p>
+          <p>Nossa equipe está pronta para tornar a sua passagem por aqui tão especial quanto a paisagem ao redor.</p>
+          <a class="btn btn-primary" href="#contato">RESERVAR ONLINE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== ACOMODAÇÕES ====================== -->
+  <section id="acomodacoes" aria-labelledby="acomodacoes-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Acomodações</p>
+        <h2 class="section-title" id="acomodacoes-title">Conheça nossos quartos</h2>
+      </div>
+
+      <div class="rooms__grid">
+
+        <!-- Standard Casal -->
+        <article class="room-card reveal">
+          <div class="room-card__media">
+            <img loading="lazy" alt="Quarto Standard Casal com cama Queen Size e varanda"
+              src="assets/imagens/acomodacoes/quarto-standart-casal.webp">
+          </div>
+          <div class="room-card__body">
+            <h3>Quarto Standard Casal</h3>
+            <p class="stars" aria-label="Avaliação 5 de 5 estrelas"><span aria-hidden="true">⭐⭐⭐⭐⭐</span></p>
+            <p class="desc">Perfeito para casais que querem descansar com conforto e privacidade. Se for uma data especial, nos avise. Preparamos uma surpresa para vocês.</p>
+            <ul class="amenities" aria-label="Diferenciais do Quarto Standard Casal">
+              <li>18 m²</li><li>Cama Queen Size</li><li>TV Smart</li><li>Geladeira</li>
+              <li>Ar-condicionado</li><li>Wi-Fi</li><li>Cofre</li><li>Varanda</li>
+            </ul>
+            <a class="btn btn-secondary" href="quarto-standard-casal.html">SAIBA MAIS</a>
+          </div>
+        </article>
+
+        <!-- Deluxe Família -->
+        <article class="room-card reveal">
+          <div class="room-card__media">
+            <img loading="lazy" alt="Quarto Deluxe Família com cama King Size e cama de solteiro"
+              src="assets/imagens/acomodacoes/quarto-deluxe-familia.webp">
+          </div>
+          <div class="room-card__body">
+            <h3>Quarto Deluxe Família</h3>
+            <p class="stars" aria-label="Avaliação 5 de 5 estrelas"><span aria-hidden="true">⭐⭐⭐⭐⭐</span></p>
+            <p class="desc">Ideal para quem viaja em família. Com cama de casal e uma de solteiro, todo mundo fica acomodado com espaço e conforto.</p>
+            <ul class="amenities" aria-label="Diferenciais do Quarto Deluxe Família">
+              <li>26 m²</li><li>Cama King Size</li><li>Cama de Solteiro</li><li>TV Smart</li>
+              <li>Geladeira</li><li>Ar-condicionado</li><li>Wi-Fi</li><li>Cofre</li><li>Térreo</li>
+            </ul>
+            <a class="btn btn-secondary" href="quarto-deluxe-familia.html">SAIBA MAIS</a>
+          </div>
+        </article>
+
+        <!-- Triplo -->
+        <article class="room-card reveal">
+          <div class="room-card__media">
+            <img loading="lazy" alt="Quarto Triplo com três camas box de solteiro"
+              src="assets/imagens/acomodacoes/quarto-triplo.webp">
+          </div>
+          <div class="room-card__body">
+            <h3>Quarto Triplo</h3>
+            <p class="stars" aria-label="Avaliação 5 de 5 estrelas"><span aria-hidden="true">⭐⭐⭐⭐⭐</span></p>
+            <p class="desc">Viagem de amigos? A Plafitpufit tem o quarto certo para vocês. Três camas confortáveis e todo o espaço que um grupo precisa para curtir Jeri.</p>
+            <ul class="amenities" aria-label="Diferenciais do Quarto Triplo">
+              <li>26 m²</li><li>3 Camas Box Solteiro</li><li>TV Smart</li><li>Geladeira</li>
+              <li>Ar-condicionado</li><li>Wi-Fi</li><li>Cofre</li><li>Térreo</li>
+            </ul>
+            <a class="btn btn-secondary" href="quarto-triplo.html">SAIBA MAIS</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== AVALIAÇÕES ====================== -->
+  <section class="reviews" id="avaliacoes" aria-labelledby="avaliacoes-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Avaliações</p>
+        <h2 class="section-title" id="avaliacoes-title">Veja nossa reputação</h2>
+      </div>
+
+      <div class="reviews__grid">
+        <figure class="review-card reveal">
+          <p class="stars" aria-label="Avaliação 5 de 5 estrelas"><span aria-hidden="true">⭐⭐⭐⭐⭐</span></p>
+          <blockquote>Estadia perfeita! O atendimento da equipe foi acolhedor do começo ao fim e a localização não poderia ser melhor, tudo a poucos passos.</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">M</span>
+            <span><cite>Mariana A.</cite><span class="source">via Google</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="review-card reveal">
+          <p class="stars" aria-label="Avaliação 5 de 5 estrelas"><span aria-hidden="true">⭐⭐⭐⭐⭐</span></p>
+          <blockquote>Quartos impecáveis, café da manhã caprichado e uma piscina ótima para relaxar depois do dia nas dunas. Voltaremos com certeza!</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">R</span>
+            <span><cite>Rafael e família</cite><span class="source">via TripAdvisor</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="review-card reveal">
+          <p class="stars" aria-label="Avaliação 5 de 5 estrelas"><span aria-hidden="true">⭐⭐⭐⭐⭐</span></p>
+          <blockquote>Custo-benefício excelente e um carinho no atendimento que faz toda a diferença. Saímos com a sensação de ter ficado na casa de amigos.</blockquote>
+          <figcaption>
+            <span class="avatar" aria-hidden="true">C</span>
+            <span><cite>Camila S.</cite><span class="source">via Google</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== DIFERENCIAIS ====================== -->
+  <section id="diferenciais" aria-labelledby="diferenciais-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Tudo para o seu conforto</p>
+        <h2 class="section-title" id="diferenciais-title">Pensamos em cada detalhe para a sua estadia</h2>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">🕐</div>
+          <h3>Recepção 24hrs</h3>
+          <p>Estamos sempre disponíveis para o que você precisar, a qualquer hora.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">📶</div>
+          <h3>Wi-Fi de Alta Velocidade</h3>
+          <p>Conexão rápida em todos os ambientes da pousada.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">🏊</div>
+          <h3>Piscina</h3>
+          <p>Relaxe e recarregue as energias no nosso espaço ao ar livre.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon" aria-hidden="true">☕</div>
+          <h3>Café da Manhã</h3>
+          <p>Comece o dia com energia com nosso café da manhã caprichado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== GALERIA ====================== -->
+  <section id="galeria" aria-labelledby="galeria-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Galeria Plafitpufit</p>
+        <h2 class="section-title" id="galeria-title">Veja algumas de nossas fotos</h2>
+      </div>
+
+      <div class="gallery__grid">
+        <figure class="span-2-col span-2-row">
+          <img loading="lazy" alt="Vista da piscina ao ar livre da pousada ao entardecer"
+            src="assets/imagens/galeria/piscina.webp">
+        </figure>
+        <figure>
+          <img loading="lazy" alt="Quarto da pousada com decoração leve e aconchegante"
+            src="assets/imagens/galeria/quarto-com-decoracao.webp">
+        </figure>
+        <figure>
+          <img loading="lazy" alt="Mesa de café da manhã com frutas e pães frescos"
+            src="assets/imagens/galeria/cafe-da-manha.webp">
+        </figure>
+        <figure>
+          <img loading="lazy" alt="Área externa da pousada com redes e plantas"
+            src="assets/imagens/galeria/area-externa-jardim.webp">
+        </figure>
+        <figure>
+          <img loading="lazy" alt="Dunas de Jericoacoara ao pôr do sol"
+            src="assets/imagens/galeria/dunas-jericoacoara.webp">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== INSTAGRAM ====================== -->
+  <section class="instagram" id="instagram" aria-labelledby="instagram-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Nosso Instagram</p>
+        <h2 class="section-title" id="instagram-title">Confira nossas últimas postagens</h2>
+      </div>
+
+      <div class="insta__grid">
+        <figure><img loading="lazy" alt="Postagem do Instagram: pôr do sol em Jericoacoara"
+          src="assets/imagens/instagram/por-do-sol.webp"></figure>
+        <figure><img loading="lazy" alt="Postagem do Instagram: detalhe de um quarto da pousada"
+          src="assets/imagens/instagram/post-quarto-pousada.webp"></figure>
+        <figure><img loading="lazy" alt="Postagem do Instagram: piscina da pousada"
+          src="assets/imagens/instagram/post-piscina.webp"></figure>
+        <figure><img loading="lazy" alt="Postagem do Instagram: café da manhã servido"
+          src="assets/imagens/instagram/post-cafe-manha.webp"></figure>
+      </div>
+
+      <a class="insta__handle" href="https://nextautomatik.com/" target="_blank" rel="noopener">@plafitpufit</a>
+      <p class="insta__cta">
+        <a class="btn btn-secondary" href="https://nextautomatik.com/" target="_blank" rel="noopener">SIGA-NOS NO INSTAGRAM</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================== JERICOACOARA ====================== -->
+  <section id="jericoacoara" aria-labelledby="jeri-title">
+    <div class="container">
+      <div class="jeri__grid">
+        <div class="jeri__text reveal">
+          <p class="eyebrow">Conheça Jericoacoara</p>
+          <h2 class="section-title" id="jeri-title">Por que Jeri é um destino único?</h2>
+          <p>Jericoacoara é uma das praias mais famosas do mundo, e não é à toa. Com dunas imponentes, lagoas de água cristalina, ventos ideais para o kitesurf e um pôr do sol que para o tempo, a Vila de Jeri é um convite constante para desacelerar.</p>
+          <p>A Pousada Plafitpufit fica no coração da vila, a poucos minutos a pé das principais atrações. Você vem pelo destino, mas fica pelo acolhimento.</p>
+          <a class="btn btn-primary" href="#contato">RESERVE AGORA</a>
+        </div>
+        <div class="jeri__media reveal">
+          <img loading="lazy" alt="Lagoa de água cristalina e dunas em Jericoacoara, Ceará"
+            src="assets/imagens/jericoacoara/lagoa-paisagem-jeri.webp">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="site-footer" id="contato">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="brand" style="display:inline-block;margin-bottom:16px;">
+          <img src="assets/logos/logo-claro.png" alt="Plafitpufit" style="display:block;width:auto;height:48px;">
+        </a>
+        <p class="footer__slogan">A nossa pousada é a sua casa em Jericoacoara. Esperamos receber você em breve.</p>
+        <address class="footer__address">
+          Rua joão Gomes, 185, Jericoacoara, Jijoca de Jericoacoara, CE
+        </address>
+        <div class="footer__social">
+          <a href="https://nextautomatik.com/" aria-label="Instagram da Pousada Plafitpufit" target="_blank" rel="noopener">
+            <img src="assets/icons/instagram.svg" alt="Instagram">
+          </a>
+          <a href="https://nextautomatik.com/" aria-label="WhatsApp da Pousada Plafitpufit" target="_blank" rel="noopener">
+            <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
+          </a>
+        </div>
+      </div>
+
+      <nav aria-labelledby="footer-links-title">
+        <h2 id="footer-links-title">Links Úteis</h2>
+        <ul class="footer__links">
+          <li><a href="#topo">Início</a></li>
+          <li><a href="#sobre">Sobre a Pousada</a></li>
+          <li><a href="#acomodacoes">Acomodações</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#jericoacoara">Jericoacoara</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 id="footer-contact-title">Contato</h2>
+        <ul class="footer__contact" aria-labelledby="footer-contact-title">
+          <li><span aria-hidden="true">📍</span> <a href="https://maps.google.com/?q=Jericoacoara+CE">Jericoacoara, CE</a></li>
+          <li><span aria-hidden="true">📞</span> <a href="tel:+5588999999999">(88) 99423-5843</a></li>
+          <li><span aria-hidden="true">💬</span> <a href="https://nextautomatik.com/" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><span aria-hidden="true">🌐</span> <a href="https://plafitpufit.com.br">plafitpufit.com.br</a></li>
+          <li><span aria-hidden="true">📧</span> <a href="mailto:reservas@plafitpufit.com.br">reservas@plafitpufit.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>Pousada Plafitpufit © 2026. Todos os Direitos Reservados</span>
+      <span><a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<a class="whatsapp-float" href="https://nextautomatik.com/" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+  // ——— Menu mobile ———
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu de navegação');
+    });
+
+    // Fecha ao clicar em link dentro do menu
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+      }
+    });
+
+    // Fecha ao clicar fora
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
+  // ——— Validação básica do formulário de reserva ———
+  (function () {
+    var form = document.querySelector('.booking-card');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var checkin  = document.getElementById('checkin').value;
+      var checkout = document.getElementById('checkout').value;
+      if (!checkin || !checkout) {
+        alert('Por favor, preencha as datas de check-in e check-out.');
+        return;
+      }
+      if (new Date(checkout) <= new Date(checkin)) {
+        alert('A data de check-out deve ser após o check-in.');
+        return;
+      }
+      // Direciona para WhatsApp com as informações
+      var hospedes = document.getElementById('hospedes').value;
+      var msg = encodeURIComponent(
+        'Olá! Gostaria de verificar disponibilidade.\n' +
+        'Check-in: ' + checkin + '\n' +
+        'Check-out: ' + checkout + '\n' +
+        'Hóspedes: ' + hospedes
+      );
+      window.open('https://nextautomatik.com/', '_blank');
+    });
+  })();
+
+  // ——— Reveal ao rolar ———
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
